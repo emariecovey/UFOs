@@ -1,0 +1,14 @@
+/** this makes light/white text **/
+body {
+    color: #f7f7f7;
+}
+
+/** this formats only to divs with a class of jumbotron. 
+    specifies that we want a background image and then shows the filepath where the image is stored
+    the image should span the whole width and height no matter the size of the viewport
+    the text should be in the center of the element**/
+.jumbotron {
+    background-image: url("../images/nasa.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+}

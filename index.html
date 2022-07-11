@@ -15,18 +15,18 @@
     <!-- link to our style sheet -->
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
+<body class="bg-dark">
     <!-- add wrapper to help group elements (title, paragraph, table, etc) and specify styling of stylesheet -->
     <div class="wrapper">
         <!-- add navigation bar, add some default styling with "navbar-brand", and reset webpage after a filter has been applied -->
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
             <a class="navbar-brand" href="index.html">UFO Sightings</a>
 
         </nav>
     </div>
     <!-- adding jumbotron -->
     <div class="jumbotron">
-        <h1>The Truth Is Out There</h1>
+        <h1 class="display-4">The Truth Is Out There</h1>
     </div>
     <!--have to use containers when using grid system (contains things and resizes them when needed), row makes sure text aligns neatly-->
     <!-- Add article title and paragraph-->
@@ -47,22 +47,23 @@
         <div class="row">
             <div class="col-md-3">
                 <!-- a form is a filter that accepts user input-->
-                <form>
+                <form class="bg-dark">
                     <p>Filter Search</p>
+                    <ul class="list-group bg-dark">
+                        <!-- first list item: enter date label, input box expecting text with a date example already in it. Datetime is variable javascript will look for when button is clicked and will put value in function-->
+                        <li class="list-group-item bg-dark">
+                            <label for="date">Enter Date</label>
+                            <input type="text" placeholder="1/10/2010" id="datetime"/>
+                        </li>
+                        <!-- second list item: button to filter the table-->
+                        <li class="list-group-item bg-dark">
+                            <button id="filter-btn" type="button" class="btn btn-dark">Filter Table</button>
+                        </li>
+                    </ul>
                 </form>
-                <ul class="list-group">
-                    <!-- first list item: enter date label, input box expecting text with a date example already in it. Datetime is variable javascript will look for when button is clicked and will put value in function-->
-                    <li class="list-group-item">
-                        <label for="date">Enter Date</label>
-                        <input type="text" placeholder="1/10/2010" id="datetime"/>
-                    </li>
-                    <!-- second list item: button to filter the table-->
-                    <li class="list-group-item">
-                        <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
-                    </li>
-                </ul>
             </div>
             <div class="col-md-9">
+                <!-- Adding table. Need all these nested tags (table, thead, tr, th, tbody)-->
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -76,7 +77,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        BODY HERE
                     </tbody>
                 </table>
             </div>
@@ -85,4 +85,10 @@
 </body>
 </html>
 
-
+<!-- Adding scripts to link app.js and data.js to this html-->
+<!-- Order matters! Make sure to add data first before the code using data, or the table will break-->
+<!-- the scripts are: 1. D3.js, 2. file path to data.js, 3. file path to app.js-->
+<!-- have to import the D3 library so that it can "listen" to script and react to user input-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+<script src="static/js/data.js"></script>
+<script src="static/js/app.js"></script>
